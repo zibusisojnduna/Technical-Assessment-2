@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import firebase from "firebase";
 import "firebase/auth";
+import "../assets/w3.css"
+import { Link } from "react-router-dom";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDFbw6B3K1kx1-qzgOlSPEreC0U30yVxB0",
@@ -35,15 +37,20 @@ const Login = () => {
         }
     }
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button type="submit">Login</button>
-                {error && <p>{error}</p>}
-            </form>
-        </div>
+        <section>
+            <div>
+                <h2>Login</h2>
+                <p>Please enter your email and password to login, or if you don't have an account, create one <Link to={"/signUp"}/> here .</p>
+
+                <form onSubmit={handleLogin}>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button type="submit">Login</button>
+                    {error && <p>{error}</p>}
+                </form>
+         </div>
+        </section>
+        
     )
 }
 
